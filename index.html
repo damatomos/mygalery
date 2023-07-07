@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Galery</title>
+		<meta name="author" content="Mikhael D'Amato" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script>
+			let tags = ['tag1', 'tag2'];
+		</script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<label for="upload-file">
+					<span class="camera icon">
+						<img src="./assets/camera.svg" alt="camera" />
+					</span>
+					<input type="file" accept="image/*" onchange="openModal(event)" id="upload-file">
+				</label>
+				<span class="logo">My Galery</span>
+				<span class="search">
+					<input id="search" type="search" onkeyup="updateCards(event)" placeholder="Pesquise por imagens e coleções" />
+				</span>
+				<span class="photo icon center-content rounded-full">
+					<img
+						class="rounded-full"
+						src="./assets/images/photo.png"
+						alt="user"
+					/>
+				</span>
+			</div>
+		</header>
+		<main class="main">
+			<h1>Galeria</h1>
+			<section class="view">
+				<div class="card">
+					<img src="./assets/images/galery01.jpg" alt="imagem" />
+					<div class="card-content">
+						<h3>Nome da imagem</h3>
+						<ul class="tag-list">
+							<li class="tag">computer</li>
+						</ul>
+					</div>
+				</div>
+				<div class="card">
+					<img src="./assets/images/galery02.jpg" alt="imagem" />
+					<div class="card-content">
+						<h3>Nome da imagem</h3>
+						<ul class="tag-list">
+							<li class="tag">computer</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			Todos os direitos reservados &copy 2023 by Mikhael D'Amato
+		</footer>
+
+		<section class="modal">
+			<div class="overlay" onclick="closeModal(event)"></div>
+			<div class="modal-container">
+				<img id="modal-image" src="./assets/images/galery01.jpg" alt="upload">
+				<div class="modal-content">
+					<label for="name">
+						Nome
+						<input type="text" id="name" placeholder="Insira o nome da imagem">
+					</label>
+					<label for="tags">
+						Tags
+						<input type="text" id="tags" onkeydown="tagChangeLimit(event)" onkeyup="tagChange(event)" placeholder="Insira as tags separando-as por espaço. ex: tag1 tag2">
+					</label>
+					<ul class="tag-list modal-tag-list">
+					</ul>
+					<button class="btn btn-modal" onclick="addImage(event)">Adicionar</button>
+				</div>
+			</div>
+		</section>
+
+		<script src="./js/script.js"></script>
+	</body>
+</html>
